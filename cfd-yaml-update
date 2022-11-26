@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "updating yaml file"
+
+sudo cloudflared service uninstall && sudo rm -r /etc/cloudflared/config.yml
+sudo cloudflared --config ~/.cloudflared/config.yml service install
+sudo systemctl enable cloudflared && sudo systemctl start cloudflared
